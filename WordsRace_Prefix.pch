@@ -1,0 +1,10 @@
+//
+// Prefix header for all source files of the 'WordsRace' target in the 'WordsRace' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+	#import "cocos2d.h"
+	#import "SpriteAdditions.h"
+#endif
