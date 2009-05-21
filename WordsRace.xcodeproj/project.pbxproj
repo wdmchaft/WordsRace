@@ -84,6 +84,7 @@
 		6A8A5BF90FC5AD4E0097E766 /* SpriteAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A5BF80FC5AD4E0097E766 /* SpriteAdditions.m */; };
 		6A8A5CB10FC5C5D10097E766 /* lettres.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A5CAF0FC5C5D10097E766 /* lettres.png */; };
 		6A8A5CB20FC5C5D10097E766 /* level_numbers.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A5CB00FC5C5D10097E766 /* level_numbers.png */; };
+		6A8A5DF60FC5F2330097E766 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A5DF50FC5F2330097E766 /* Word.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,6 +240,8 @@
 		6A8A5BF80FC5AD4E0097E766 /* SpriteAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteAdditions.m; sourceTree = "<group>"; };
 		6A8A5CAF0FC5C5D10097E766 /* lettres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lettres.png; sourceTree = "<group>"; };
 		6A8A5CB00FC5C5D10097E766 /* level_numbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_numbers.png; sourceTree = "<group>"; };
+		6A8A5DF40FC5F2330097E766 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		6A8A5DF50FC5F2330097E766 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -525,6 +528,8 @@
 				6A8A5AF50FC591FE0097E766 /* LetterSprite.m */,
 				6A8A5BF70FC5AD4E0097E766 /* SpriteAdditions.h */,
 				6A8A5BF80FC5AD4E0097E766 /* SpriteAdditions.m */,
+				6A8A5DF40FC5F2330097E766 /* Word.h */,
+				6A8A5DF50FC5F2330097E766 /* Word.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -662,6 +667,7 @@
 				6A8A5AF60FC591FE0097E766 /* LetterSprite.m in Sources */,
 				6A8A5B9C0FC5A7280097E766 /* GameLayer.m in Sources */,
 				6A8A5BF90FC5AD4E0097E766 /* SpriteAdditions.m in Sources */,
+				6A8A5DF60FC5F2330097E766 /* Word.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

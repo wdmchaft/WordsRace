@@ -18,6 +18,7 @@
 	CGRect rect = CGRectMake(col*61, row*62, 61, 62);
 	self = [super initWithRect: rect spriteManager: mgr];
 	if (self != nil) {
+		NSLog(@" lettre:%@ col:%d row:%d index:%d",aLetter,col,row,index);
 		self.letter = aLetter;
 	}
 	return self;

@@ -11,7 +11,7 @@
 
 @implementation GameLayer
 
-@synthesize letterSprites,letterPositions;
+@synthesize letterSprites,letterPositions,currentWord;
 @synthesize selectedLetter;
 @synthesize letterSpritesManager;
 
@@ -19,6 +19,9 @@
 	self = [super init];
 	if (self != nil) {
 		self.letterSpritesManager = [AtlasSpriteManager spriteManagerWithFile: @"lettres.png"]; 	
+		self.letterSprites = [NSMutableArray arrayWithCapacity:6];
+		self.letterPositions = [NSMutableArray arrayWithCapacity:6];
+		self.currentWord = [Word node];
 		[self addChild: self.letterSpritesManager];
 		[self setRandomLetters];
 		[self setIsTouchEnabled: YES];
@@ -28,6 +31,7 @@
 
 - (void) dealloc	{
 	[self.letterSpritesManager release];
+	[self.currentWord release];
 	[self.selectedLetter release];
 	[self.letterSprites release];
 	[self.letterPositions release];
@@ -35,11 +39,9 @@
 }
 
 - (void) setRandomLetters	{
-	self.letterSprites = [NSMutableArray arrayWithCapacity:6];
-	self.letterPositions = [NSMutableArray arrayWithCapacity:6];
 	NSArray *alphabet = [NSArray arrayWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",
-						 @"G",@"H",@"I",@"K",@"L",@"M",
-						 @"N",@"O",@"P",@"Q",@"R",@"S",
+						 @"G",@"H",@"I",@"J",@"K",@"L",
+						 @"M",@"N",@"O",@"P",@"Q",@"R",@"S",
 						 @"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
 	for (int i=0; i<6; i++) {
 		int randomNumber = rand() % [alphabet count];
@@ -62,6 +64,24 @@
 	
 }
 
+- (void) setLetterSpritesTemporaryPosition:(int) index	{
+	NSMutableArray *temporarySprites = [NSMutableArray arrayWithCapacity:6];
+	if (index > -1)	{
+		for(int i=0;i<[self.letterSprites count];i++)	{
+			[temporarySprites addObject:[self.letterSprites objectAtIndex: i]];
+		}
+		[temporarySprites removeObject: self.selectedLetter];
+		[temporarySprites insertObject: self.selectedLetter atIndex: index];
+		for(int i=0;i<[temporarySprites count];i++)	{
+			if (i != index) {
+				LetterSprite *sprite = [temporarySprites objectAtIndex: i];
+				CGPoint point = [[self.letterPositions objectAtIndex: i] CGPointValue];
+				[sprite runAction: [EaseOut actionWithAction:[MoveTo actionWithDuration: 0.2 position: point] rate:2.0]];			
+			}
+		}
+	}
+}
+
 - (void) setLetterSpritesPositions	{
 	for (int i=0;i<[self.letterSprites count];i++)	{
 		LetterSprite *sprite = [self.letterSprites objectAtIndex: i];
@@ -70,18 +90,19 @@
 	}
 }
 
+
 - (int) letterIndexForPosition:(CGPoint)point	{
 	int i =0;
-	for(NSValue *value in self.letterPositions)	{
-		CGPoint letterPosition = [value CGPointValue];
-		if (point.y > 20 && point.y<130)	{
+	if ((point.y > 20 && point.y<130) || self.selectedLetter == nil)	{
+		for(NSValue *value in self.letterPositions)	{
+			CGPoint letterPosition = [value CGPointValue];
 			if (point.x < letterPosition.x)	{
 				return i; 
 			}
-		}	else	{
-			return -1;
-		}
 		i++;
+		}
+	}	else	{
+		return -1;
 	}
 	return [self.letterPositions count]-1;	
 }
@@ -98,16 +119,23 @@
 } 
 
 - (BOOL) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event { 
-	if (self.selectedLetter == nil) return kEventIgnored; 
 	UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView: [touch view]];
     CGPoint convertedLocation = [[Director sharedDirector] convertCoordinate:location];
-	[self.selectedLetter setPosition: convertedLocation];
+	if (self.selectedLetter == nil) {
+		[self.currentWord addLetterToWord: [self.letterSprites objectAtIndex:[self letterIndexForPosition: convertedLocation]]];
+	}	else	{
+		[self.selectedLetter setPosition: convertedLocation];
+		[self setLetterSpritesTemporaryPosition: [self letterIndexForPosition: convertedLocation]];
+	}
 	return kEventHandled;
 } 
 
 - (BOOL) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event { 
-	if (self.selectedLetter == nil) return kEventIgnored; 
+	if (self.selectedLetter == nil) {
+		[self.currentWord validate];
+		return kEventHandled;
+	}
 	UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView: [touch view]];
     CGPoint convertedLocation = [[Director sharedDirector] convertCoordinate:location];
