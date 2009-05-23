@@ -43,8 +43,15 @@
 						 @"G",@"H",@"I",@"J",@"K",@"L",
 						 @"M",@"N",@"O",@"P",@"Q",@"R",@"S",
 						 @"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
-	for (int i=0; i<6; i++) {
-		int randomNumber = rand() % [alphabet count];
+	
+	// Force a set of letters (for testing)
+	int numbers[] = {18,20,15,4,17,25};
+	BOOL random = NO;
+	
+	for (int i=0; i<6; i++)
+	{
+		int randomNumber = random ? (rand() % [alphabet count]) : numbers[i];
+		
 		CGPoint letterPosition = ccp((480 - (70*NORMAL_SCALE)*6)/2 + i * (70*NORMAL_SCALE) + (30.5*NORMAL_SCALE),50);
 		LetterSprite *oLetter = [LetterSprite letterSpriteWithManager:self.letterSpritesManager andLetter:[alphabet objectAtIndex: randomNumber] andIndex: randomNumber];
 		[letterSprites addObject: oLetter];

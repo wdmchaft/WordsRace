@@ -7,6 +7,7 @@
 //
 
 #import "Word.h"
+#import "WordsDictionary.h"
 
 @implementation Word
 
@@ -35,7 +36,7 @@
 }
 
 - (BOOL) validate	{
-	NSLog(@"%@",self);
+	[[WordsDictionary sharedInstance] isValidWord: self];
 	[self.selectedLetters removeAllObjects];
 	return NO;
 }

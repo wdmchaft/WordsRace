@@ -85,6 +85,8 @@
 		6A8A5CB10FC5C5D10097E766 /* lettres.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A5CAF0FC5C5D10097E766 /* lettres.png */; };
 		6A8A5CB20FC5C5D10097E766 /* level_numbers.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A5CB00FC5C5D10097E766 /* level_numbers.png */; };
 		6A8A5DF60FC5F2330097E766 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A5DF50FC5F2330097E766 /* Word.m */; };
+		969585900FC7CC8300AF444A /* ods4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9695858F0FC7CC8300AF444A /* ods4.txt */; };
+		969585950FC7CCC000AF444A /* WordsDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 969585940FC7CCC000AF444A /* WordsDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -243,6 +245,9 @@
 		6A8A5DF40FC5F2330097E766 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
 		6A8A5DF50FC5F2330097E766 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9695858F0FC7CC8300AF444A /* ods4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ods4.txt; sourceTree = "<group>"; };
+		969585930FC7CCC000AF444A /* WordsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordsDictionary.h; sourceTree = "<group>"; };
+		969585940FC7CCC000AF444A /* WordsDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordsDictionary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +269,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				969585920FC7CC9300AF444A /* Logic */,
 				6A8A5B990FC5A7160097E766 /* Layers */,
 				6A8A5AF30FC591EB0097E766 /* Sprites */,
 				1D3623240D0F684500981E51 /* WordsRaceAppDelegate.h */,
@@ -307,6 +313,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9695858F0FC7CC8300AF444A /* ods4.txt */,
 				6A8A5CAF0FC5C5D10097E766 /* lettres.png */,
 				6A8A5CB00FC5C5D10097E766 /* level_numbers.png */,
 				6A8A5AB10FC590290097E766 /* fps_images.png */,
@@ -543,6 +550,15 @@
 			name = Layers;
 			sourceTree = "<group>";
 		};
+		969585920FC7CC9300AF444A /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				969585930FC7CCC000AF444A /* WordsDictionary.h */,
+				969585940FC7CCC000AF444A /* WordsDictionary.m */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -589,6 +605,7 @@
 				6A8A5AB20FC590290097E766 /* fps_images.png in Resources */,
 				6A8A5CB10FC5C5D10097E766 /* lettres.png in Resources */,
 				6A8A5CB20FC5C5D10097E766 /* level_numbers.png in Resources */,
+				969585900FC7CC8300AF444A /* ods4.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +685,7 @@
 				6A8A5B9C0FC5A7280097E766 /* GameLayer.m in Sources */,
 				6A8A5BF90FC5AD4E0097E766 /* SpriteAdditions.m in Sources */,
 				6A8A5DF60FC5F2330097E766 /* Word.m in Sources */,
+				969585950FC7CCC000AF444A /* WordsDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
