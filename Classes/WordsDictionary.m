@@ -71,5 +71,15 @@ static WordsDictionary *sharedInst = nil;
 	
 	return valid;
 }
-		
+
+/*- (NSString) getRandomWord: (int)letterQty {
+	NSMutableArray *matchingWords =[NSMutableArray arrayWithCapacity:1000];
+	for (NSString *word in self.words)	{
+		if ( [word length] == letterQty ) {
+			[matchingWords addObject: word];
+		}
+	}
+	int num = rand()%[matchingWords count];
+	return [matchingWords objectAtIndex:num];
+}*/
 @end

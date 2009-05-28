@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface WordsRaceAppDelegate : NSObject <UIApplicationDelegate> {
-	Scene *ms;
+	Scene *MenuScene;
 }
 
-@property (retain) 	Scene *ms;
+@property (retain) 	Scene *MenuScene;
 
 
 @end

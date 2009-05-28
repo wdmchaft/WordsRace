@@ -7,6 +7,7 @@
 //
 
 #import "GameLayer.h"
+#import "WordsDictionary.h"
 
 
 @implementation GameLayer
@@ -43,9 +44,9 @@
 						 @"G",@"H",@"I",@"J",@"K",@"L",
 						 @"M",@"N",@"O",@"P",@"Q",@"R",@"S",
 						 @"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
-	
+	//NSString *word = [[WordsDictionary sharedInstance] getRandomWord: 6];
 	// Force a set of letters (for testing)
-	int numbers[] = {18,20,15,4,17,25};
+	int numbers[] = {4,8,11,0,13,6};
 	BOOL random = NO;
 	
 	for (int i=0; i<6; i++)
@@ -57,7 +58,7 @@
 		[letterSprites addObject: oLetter];
 		[letterPositions addObject: [NSValue valueWithCGPoint:letterPosition]];
 		[oLetter setPosition: letterPosition];
-		[oLetter doAppearAnim:i*0.5];
+		[oLetter doAppearAnim:i*0.2 withScale:NORMAL_SCALE];
 		[self.letterSpritesManager addChild: oLetter];
 	}
 }
@@ -103,15 +104,13 @@
 	if ((point.y > 20 && point.y<130) || self.selectedLetter == nil)	{
 		for(NSValue *value in self.letterPositions)	{
 			CGPoint letterPosition = [value CGPointValue];
-			if (point.x < letterPosition.x)	{
+			if (letterPosition.x > point.x-20 && letterPosition.x < point.x+20)	{
 				return i; 
 			}
 		i++;
 		}
-	}	else	{
-		return -1;
 	}
-	return [self.letterPositions count]-1;	
+	return -1;	
 }
 		
 - (BOOL) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event { 
@@ -130,7 +129,10 @@
     CGPoint location = [touch locationInView: [touch view]];
     CGPoint convertedLocation = [[Director sharedDirector] convertCoordinate:location];
 	if (self.selectedLetter == nil) {
-		[self.currentWord addLetterToWord: [self.letterSprites objectAtIndex:[self letterIndexForPosition: convertedLocation]]];
+		int index = [self letterIndexForPosition: convertedLocation];
+		if (index > -1)	{
+			[self.currentWord addLetterToWord: [self.letterSprites objectAtIndex:index]];
+		}
 	}	else	{
 		[self.selectedLetter setPosition: convertedLocation];
 		[self setLetterSpritesTemporaryPosition: [self letterIndexForPosition: convertedLocation]];

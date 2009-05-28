@@ -8,11 +8,11 @@
 
 
 #import "WordsRaceAppDelegate.h"
-#import "GameLayer.h"
+#import "MenuLayer.h"
 
 @implementation WordsRaceAppDelegate
 
-@synthesize ms;
+@synthesize MenuScene;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)app {    	
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -22,13 +22,13 @@
     [[Director sharedDirector] attachInWindow:window];
 	
     [window makeKeyAndVisible];
-	self.ms = [Scene node];
-    [[Director sharedDirector] runWithScene: self.ms];
-	[self.ms addChild:[GameLayer node]];
+	self.MenuScene = [Scene node];
+    [[Director sharedDirector] runWithScene: self.MenuScene];
+	[self.MenuScene addChild:[MenuLayer node]];
 }
 
 - (void) dealloc	{
-	[self.ms release];
+	[self.MenuScene release];
 	[super dealloc];
 }
 

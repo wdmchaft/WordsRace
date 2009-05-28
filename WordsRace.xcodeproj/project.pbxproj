@@ -12,6 +12,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		6A6EC16E0FC8A8E80091D3EA /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6EC16D0FC8A8E80091D3EA /* MenuLayer.m */; };
 		6A8A59FC0FC58FB10097E766 /* chipmunk.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A59940FC58FB10097E766 /* chipmunk.c */; };
 		6A8A59FD0FC58FB10097E766 /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6A8A59960FC58FB10097E766 /* CMakeLists.txt */; };
 		6A8A59FE0FC58FB10097E766 /* cpArbiter.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A8A59970FC58FB10097E766 /* cpArbiter.c */; };
@@ -98,6 +99,8 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* WordsRace_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordsRace_Prefix.pch; sourceTree = "<group>"; };
+		6A6EC16C0FC8A8E80091D3EA /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		6A6EC16D0FC8A8E80091D3EA /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
 		6A8A59940FC58FB10097E766 /* chipmunk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = chipmunk.c; sourceTree = "<group>"; };
 		6A8A59950FC58FB10097E766 /* chipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
 		6A8A59960FC58FB10097E766 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
@@ -546,6 +549,8 @@
 			children = (
 				6A8A5B9A0FC5A7280097E766 /* GameLayer.h */,
 				6A8A5B9B0FC5A7280097E766 /* GameLayer.m */,
+				6A6EC16C0FC8A8E80091D3EA /* MenuLayer.h */,
+				6A6EC16D0FC8A8E80091D3EA /* MenuLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -686,6 +691,7 @@
 				6A8A5BF90FC5AD4E0097E766 /* SpriteAdditions.m in Sources */,
 				6A8A5DF60FC5F2330097E766 /* Word.m in Sources */,
 				969585950FC7CCC000AF444A /* WordsDictionary.m in Sources */,
+				6A6EC16E0FC8A8E80091D3EA /* MenuLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

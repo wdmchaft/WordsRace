@@ -7,6 +7,8 @@
 //
 #import "LetterSprite.h"
 
+
+
 @interface Word : CocosNode {
 	NSMutableArray *selectedLetters;
 }

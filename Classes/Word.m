@@ -30,15 +30,23 @@
 
 
 - (void) addLetterToWord: (LetterSprite *)letter	{
-	if (![self.selectedLetters containsObject: letter]) {
+	if (![self.selectedLetters containsObject: letter] && letter != nil) {
 		[self.selectedLetters addObject: letter];
+		[letter doSelectedAnim];
 	}
 }
 
 - (BOOL) validate	{
-	[[WordsDictionary sharedInstance] isValidWord: self];
+	BOOL isWordValid = [[WordsDictionary sharedInstance] isValidWord: self];
+	int i=0;
+	for (LetterSprite *letter in self.selectedLetters)	{
+		[letter undoSelectedAnim];
+		if (isWordValid) [letter doValidAnim:0.1*i];
+		else  [letter doNotValidAnim:0.1*i];
+		i++;
+	}
 	[self.selectedLetters removeAllObjects];
-	return NO;
+	return isWordValid;
 }
 
 - (NSString *) description	{

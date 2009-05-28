@@ -6,7 +6,6 @@
 //  Copyright 2009 Boostr. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "Word.h"
 
 @interface WordsDictionary : NSObject {
@@ -17,5 +16,6 @@
 
 + (WordsDictionary*)sharedInstance;
 - (BOOL) isValidWord: (Word*) word;
+//- (NSString) getRandomWord: (int) letterQty;
 
 @end
